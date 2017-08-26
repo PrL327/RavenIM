@@ -1,7 +1,12 @@
 <html>
 
 <head>
-  <title>Socket.IO chat</title>
+  <title>Raven Instant Messenger</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <style>
     * {
       margin: 0;
@@ -14,7 +19,7 @@
     }
 
     form {
-      background: #000;
+      /*background: #000;*/
       padding: 3px;
       position: fixed;
       bottom: 0;
@@ -22,21 +27,25 @@
     }
 
     form input {
-      border: 0;
+      /*border: 0;*/
       padding: 10px;
       width: 90%;
       margin-right: .5%;
     }
 
-    form button {
+    /*form button {
       width: 9%;
       background: rgb(130, 224, 255);
       border: none;
       padding: 10px;
+    }*/
+    .btn{
+      width: 9%;
+      padding: 10px;
     }
-
     #messages {
       list-style-type: none;
+      font-size: 20px;
       margin: 0;
       padding: 0;
     }
@@ -67,13 +76,26 @@
     });
   });
 </script>
+<!-- <script>
+  function submit(){
+    if(document.getElementById("send") != ""){
+      document.getElementById("send").className = "btn btn-success";
+    }
+  }
+</script> -->
 
 </head>
 
 <body>
   <ul id="messages"></ul>
   <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
+    <!-- <input id="m" autocomplete="off" /><button type="button" class="btn btn-secondary">Send</button> -->
+    <div>
+      <div class="input-group">
+        <input id="m" autocomplete="off" type="text" class="form-control">
+        <button class="btn btn-success" type="button">Send</button>
+      </div>
+    </div>
   </form>
 </body>
 
