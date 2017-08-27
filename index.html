@@ -19,7 +19,6 @@
     }
 
     form {
-      /*background: #000;*/
       padding: 3px;
       position: fixed;
       bottom: 0;
@@ -27,18 +26,10 @@
     }
 
     form input {
-      /*border: 0;*/
       padding: 10px;
       width: 90%;
       margin-right: .5%;
     }
-
-    /*form button {
-      width: 9%;
-      background: rgb(130, 224, 255);
-      border: none;
-      padding: 10px;
-    }*/
     .btn{
       width: 9%;
       padding: 10px;
@@ -57,46 +48,77 @@
     #messages li:nth-child(odd) {
       background: #eee;
     }
+    .login-pane{
+      text-align: center;
+      margin-left: 38%;
+      margin-top: 25%;
+    }
   </style>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io();
-  </script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/App.js" type="text/javascript"></script>
   <script>
   $(function () {
     var socket = io();
+    $("#chat").hide();
+		$("#name").focus();
     $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
+        socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
     });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-    });
-  });
-</script>
-<!-- <script>
-  function submit(){
-    if(document.getElementById("send") != ""){
-      document.getElementById("send").className = "btn btn-success";
-    }
-  }
-</script> -->
+        socket.on('chat message', function(userID, msg){
+          $('#messages').append($('<li>').text(userID+": "+msg));
+        });
 
+    		$("#join").click(function(){
+    			var userID = $("#name").val();
+    			if (userID != "") {
+    				socket.emit("join", userID);
+    				$("#login").detach();
+    				$("#chat").show();
+    				$("#msg").focus();
+    				ready = true;
+    			}
+    		});
+    		$("#name").keypress(function(e){
+    			if(e.which == 13) {
+    				var userID = $("#name").val();
+    				if (userID != "") {
+    					socket.emit("join", userID);
+    					ready = true;
+    					$("#login").detach();
+    					$("#chat").show();
+    					$("#msg").focus();
+    				}
+    			}
+    		});
+  });
+  </script>
 </head>
 
 <body>
+  <div class = "span5 offset2" id="login">
+    <div class="row">
+    <div class="login-pane">
+      <img src='crow-128.png'>
+      <h3 style="margin-bottom: 3.3vh;">Raven Instant Messenger</h3>
+      <label>Enter a User Name:</label>
+      <input style="margin-bottom: 5.3vh;"type="text" class="input-small" id="name">
+      <br>
+      <input type="button" class="btn btn-primary" name="join" id="join" value="Join" style="width:35%;">
+    </div>
+  </div>
+  </div>
   <ul id="messages"></ul>
+  <div id ="chat">
   <form action="">
-    <!-- <input id="m" autocomplete="off" /><button type="button" class="btn btn-secondary">Send</button> -->
-    <div>
       <div class="input-group">
         <input id="m" autocomplete="off" type="text" class="form-control">
         <button class="btn btn-success" type="button">Send</button>
       </div>
-    </div>
   </form>
+</div>
 </body>
 
 </html>
