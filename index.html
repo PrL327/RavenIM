@@ -56,7 +56,7 @@
   </style>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  <script src="/App.js" type="text/javascript"></script>
+
   <script>
   $(function () {
     var socket = io();
@@ -90,6 +90,7 @@
     					$("#login").detach();
     					$("#chat").show();
     					$("#msg").focus();
+              $('#messages').append($('<li>').text(userID+" has joined the room"));
     				}
     			}
     		});
@@ -101,7 +102,7 @@
   <div class = "span5 offset2" id="login">
     <div class="row">
     <div class="login-pane">
-      <img src='crow-128.png'>
+      <img src="./images/raven-64.png">
       <h3 style="margin-bottom: 3.3vh;">Raven Instant Messenger</h3>
       <label>Enter a User Name:</label>
       <input style="margin-bottom: 5.3vh;"type="text" class="input-small" id="name">
