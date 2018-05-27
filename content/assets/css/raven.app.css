@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  font: 13px Helvetica, Arial;
+}
+form {
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+form input {
+  padding: 10px;
+  width: 90%;
+  margin-right: .5%;
+}
+.nav-global {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.btn {
+  width: 9%;
+  padding: 10px;
+}
+#messages {
+  list-style-type: none;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+.login-pane {
+  text-align: center;
+  width: 35.5vw;
+  height: 21.5vh;
+  position: absolute;
+top:0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}
