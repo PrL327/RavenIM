@@ -17,20 +17,23 @@ form input {
   width: 90%;
   margin-right: .5%;
 }
-.nav-global {
+.container {
+  margin-left: 0 !important;
+  width: 97% !important;
+}
+.navbar {
+  -webkit-box-direction: row !important;
+}
+ .nav-global {
   color: white;
-  text-align: center;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  /* text-align: center; */
+  display: inline-block;
+   text-align:center;
 }
 .btn {
   width: 9%;
   padding: 10px;
-}
+} 
 #messages {
   list-style-type: none;
   font-size: 20px;
@@ -48,9 +51,9 @@ form input {
   width: 35.5vw;
   height: 21.5vh;
   position: absolute;
-top:0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }

@@ -1,27 +1,86 @@
 <html>
   <head>
     <title>Raven Instant Messenger</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/raven.app.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/raven.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src = "assets/js/login.js"></script>
+    <script src = "assets/js/chat.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+    <style>
+      .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+    </style>
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-dark bg-primary nav-global">
-      <h4>Raven IM</h4>
+    <nav class="navbar bg-primary nav-global">
+      <div class="container">
+        <button class="" href="#" style="float:left;" onclick="openNav">
+          <img src="assets/images/hamburger-menu.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        </button>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+        <h4 style=""> Raven IM</h4>
+      </div>
     </nav>
+    <div class="main">
     <ul id="messages"></ul>
     <div id ="chat">
       <form action="">
           <div class="input-group">
             <input id="m" autocomplete="off" type="text" class="form-control">
-            <button class="btn btn-success" type="button">Send</button>
+            <button class="btn btn-success" type="submit">Send</button>
           </div>
       </form>
+    </div>
     </div>
   </body>
 </html>
